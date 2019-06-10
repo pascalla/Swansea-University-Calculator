@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University Degree Calculator</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <div id="app">
+	<div class="container">
+		<div class="card mt-5">
+		  <div class="card-body">
+			     <p>This is a degree calculator for Swansea University based on the formula given on <a href="https://www.whatdotheyknow.com/request/259192/response/640870/attach/html/3/FOI%20Response%20151%2014%2015.pdf.html" target="_blank">Freedom of Information by Swansea University</a>. This is specifically towards a course built up on 15 credit modules.</p>
+
+           <p> Obviously I can't guarantee this is what your end result will be, or even if this is the formula for your degree. Any questions to 921340@swansea.ac.uk
+
+
+		  </div>
+		</div>
+
+    <div class="text-center">
+      <h1>{{ finalGrade }}</h1>
+    </div>
+
+		<div class="card mt-5">
+      <div class="card-header">Enter your Results</div>
+		  <div class="card-body">
+        <form v-on:submit.prevent>
+          <h4>Year 2 Grades</h2>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r1" placeholder="60" v-model="grades.y2.g1">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r2" placeholder="60" v-model="grades.y2.g2">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r3" placeholder="60" v-model="grades.y2.g3">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r4" placeholder="60" v-model="grades.y2.g4">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r5" placeholder="60" v-model="grades.y2.g5">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r6" placeholder="60" v-model="grades.y2.g6">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r7" placeholder="60" v-model="grades.y2.g7">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y2-r8" placeholder="60" v-model="grades.y2.g8">
+              </div>
+            </div>
+          </div>
+
+          <h4>Year 3 Grades</h2>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r1" placeholder="60" v-model="grades.y3.g1">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r2" placeholder="60" v-model="grades.y3.g2">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r3" placeholder="60" v-model="grades.y3.g3">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y2-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r4" placeholder="60" v-model="grades.y3.g4">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r5" placeholder="60" v-model="grades.y3.g5">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r6" placeholder="60" v-model="grades.y3.g6">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r7" placeholder="60" v-model="grades.y3.g7">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="y3-r1">Grade %</label>
+                <input type="text" class="form-control" id="y3-r8" placeholder="60" v-model="grades.y3.g8">
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" v-on:click="calculated()">Submit</button>
+
+        </form>
+		  </div>
+		</div>
+	</div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        grades: {
+          y2: {
+            g1: '',
+            g2: '',
+            g3: '',
+            g4: '',
+            g5: '',
+            g6: '',
+            g7: '',
+            g8: '',
+          },
+          y3: {
+            g1: '',
+            g2: '',
+            g3: '',
+            g4: '',
+            g5: '',
+            g6: '',
+            g7: '',
+            g8: '',
+          },
+        },
+        results:{
+          // divide by 80, multiply by 50*100
+          bandA: 0,
+          bandB: 0,
+          bandC: 0,
+          bandD: 0,
+        }
+      },
+      computed: {
+        finalGrade: function() {
+          return this.results.bandA + this.results.bandB + this.results.bandC + this.results.bandD;
+        }
+      },
+      methods: {
+        creditValue(val){
+          return val*15;
+        },
+        totalCreditVal(lvl7, lvl6){
+          var credits6 = [];
+          var credits7 = [];
+          var bandA = [];
+          var bandB = [];
+          var bandC = [];
+          var bandD = [];
+
+
+          // LEVEL 7
+          for (var val in lvl7 ) {
+            credits7.push(this.creditValue(lvl7[val]));
+          }
+
+          credits7.sort(function(a, b){return b-a});
+
+          // get BAND A (Top 80 @ Level 7)
+          for(var i = 0;i < 5;i++){
+            bandA.push(credits7[i]);
+          }
+          bandA.push((credits7[5]/15)*5)
+
+          // GET BAND B (Remaing 40 @ Level 7)
+          for(var i = 6;i < 8;i++){
+            bandB.push(credits7[i]);
+          }
+          bandB.push((credits7[5]/15)*10)
+
+          // LEVEL 6
+          for (var val in lvl6 ) {
+            credits6.push(this.creditValue(lvl6[val]));
+          }
+
+          credits6.sort(function(a, b){return b-a});
+
+          // get BAND C (Top 40 @ Level 6)
+          for(var i = 0;i < 2;i++){
+            bandC.push(credits6[i]);
+          }
+          bandC.push((credits6[2]/15)*10);
+
+          // GET BAND D (Remaing 40 @ Level 6)
+          for(var i = 3;i < 8;i++){
+            bandD.push(credits6[i]);
+          }
+          bandD.push((credits6[2]/15)*5);
+
+          this.results.bandA = this.bandCalculate(bandA, 50, 80);
+          this.results.bandB = this.bandCalculate(bandB, 16.67, 40);
+          this.results.bandC = this.bandCalculate(bandC, 16.66, 40);
+          this.results.bandD = this.bandCalculate(bandD, 16.67, 80);
+        },
+        bandCalculate(band, multiplier, credits){
+          var total = 0;
+          band.forEach(function (mod){
+            total += mod;
+          });
+          total = (total/credits)*multiplier/100;
+
+          return total;
+        },
+        calculated(){
+          this.totalCreditVal(this.grades.y3, this.grades.y2);
+        },
+      },
+    })
+  </script>
+</body>
+</html>
