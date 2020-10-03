@@ -4,4 +4,4 @@ This is a degree calculator for Swansea University based on the formula given on
 
 Obviously I can't guarantee this is what your end result will be, or even if this is the formula for your degree. Any questions to 921340@swansea.ac.uk
 
-You can find this hosted on https://grades.blackman.fyi/
+You can run this locally.
